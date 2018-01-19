@@ -1,0 +1,34 @@
+<view class="content">
+
+  <!-- enter event text here -->
+  <label>{{textarea_hint}}</label>
+  <textarea placeholder="{{textarea_placeholder}}"  bindinput="textChange">
+  </textarea>
+  
+  <!-- select date here -->
+  <label>{{date_picker_hint}}</label>
+  <picker mode="date" value="{{event.Date}}"  bindchange="bindDate">
+    <view class="picker">
+      当前选择: {{event.Date}}
+    </view>
+  </picker>
+  <!-- select category here -->
+  <label>{{category_picker_hint}}</label>
+  <picker bindchange="bindCategory" range="{{categoryArray}}" value="{{event.index}}">
+    <view class="picker">
+      当前选择： {{categoryArray[event.index]}}
+    </view>
+  </picker>
+
+  <!-- select picture from phone -->
+  
+  <button type="primary" bindtap="selectImage">选择照片</button>
+  <image src="{{event.image}}" mode="scaleToFill" />
+
+  <!-- confirm to store the infomation -->
+  <button type="primary" form-type="submit" bindtap="submitInfo">
+    提交
+  </button>
+
+
+</view>
