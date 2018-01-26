@@ -1,28 +1,51 @@
 //index.js
 //获取应用实例
 const app = getApp()
-var eventList = [];
+var eventList = []
 Page({
   data: {
     userInfo: {},
-    gotoedit:'Click here to edit',
+    gotoedit:'点击编辑新事件',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-  },
+    clickID : 1
   
-  
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
   },
+
+  //jump to edit page  
   anotherBindTap: function(){
     wx.navigateTo({
       url: '../edit/edit'
     })
   },
+
+  passIndex:function(e){
+    this.setData({
+      clickID : e.currentTarget.dataset.id
+    })
+    
+    console.log(this.data.clickID)
+
+    wx.setStorage({
+      key: "currentPage",
+      data : this.data.clickID
+    })
+  },
+
+
+  onShow:function(){
+    var that = this
+    wx.getStorage({
+      key:"eventList",
+      success: function(res) {
+        that.setData({
+          eventList: res.data
+        })
+      } 
+    })
+  },
   onLoad: function () {
+    
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

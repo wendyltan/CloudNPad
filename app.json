@@ -1,13 +1,33 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/edit/edit"
+    "pages/edit/edit",
+    "pages/eventDetail/eventDetail",
+    "pages/latestfilm/latestfilm"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "CloudNPad",
     "navigationBarTextStyle":"black"
+  },
+   "tabBar": {
+    "color":"#666666",
+    "selectedColor":"#06bd04",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+       "iconPath": "image/notebook.png",
+        "text": "记事本",
+        "selectedIconPath": "image/notebookHL.png"
+      }, 
+      {
+        "pagePath": "pages/latestfilm/latestfilm",
+         "iconPath": "image/course.png",
+        "text": "最近上映",
+        "selectedIconPath": "image/courseHL.png"
+      }]
   }
 }

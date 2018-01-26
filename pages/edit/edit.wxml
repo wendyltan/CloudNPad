@@ -1,34 +1,85 @@
 <view class="content">
 
-  <!-- enter event text here -->
-  <label>{{textarea_hint}}</label>
-  <textarea placeholder="{{textarea_placeholder}}"  bindinput="textChange">
-  </textarea>
-  
+  <!-- enter event title here -->
+  <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">{{title_hint}}</view>
+      </view>
+      <view class="weui-cell__bd">
+          <input class="weui-input" placeholder="请输入事件名" bindblur="bindTitle"/>
+      </view>
+  </view>
+
   <!-- select date here -->
-  <label>{{date_picker_hint}}</label>
-  <picker mode="date" value="{{event.Date}}"  bindchange="bindDate">
-    <view class="picker">
-      当前选择: {{event.Date}}
+  <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">{{date_picker_hint}}</view>
+      </view>
+      <view class="weui-cell__bd">
+          <picker mode="date" bindchange="bindDate">
+              <view class="weui-input">{{current_Date}}</view>
+          </picker>
+      </view>
+  </view>
+
+   <!-- select category here -->
+  <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">{{category_picker_hint}}</view>
+      </view>
+      <view class="weui-cell__bd">
+          <picker bindchange="bindCategory" range="{{categoryArray}}" value="{{event.index}}">
+              <view class="weui-input">{{categoryArray[event.index]}}</view>
+          </picker>
+      </view>
+  </view>
+
+  <!-- enter event text here -->
+   <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-label">{{textarea_hint}}</view>
+      </view>
+      <view class="weui-cells_after-title weui-cell__bd">
+          <view class="weui-cell">
+              <view class="weui-cell__bd">
+                  <textarea class="weui-textarea" bindinput="textChange" placeholder="请输入文本" style="height: 3.3em" />
+                  <view class="weui-textarea-counter">{{event.Content.length}}/200</view>
+              </view>
+          </view>
+      </view>
     </view>
-  </picker>
-  <!-- select category here -->
-  <label>{{category_picker_hint}}</label>
-  <picker bindchange="bindCategory" range="{{categoryArray}}" value="{{event.index}}">
-    <view class="picker">
-      当前选择： {{categoryArray[event.index]}}
-    </view>
-  </picker>
+
 
   <!-- select picture from phone -->
+
+  <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+          <view class="weui-uploader__title weui-label">图片选择</view>
+          <view class="weui-uploader__info weui-label">{{event.image.length}}/1</view>
+      </view>
+      <view class="weui-cells_after-title weui-cell__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+              <view class="weui-uploader__file" bindtap="previewImage">
+                  <image class="weui-uploader__img" src="{{event.image}}" mode="aspectFill" />
+              </view>
+          </view>
+          <view class="weui-uploader__input-box">
+              <view class="weui-uploader__input" bindtap="selectImage"></view>
+          </view>
+      </view>
   
-  <button type="primary" bindtap="selectImage">选择照片</button>
-  <image src="{{event.image}}" mode="scaleToFill" />
+  </view>
 
   <!-- confirm to store the infomation -->
-  <button type="primary" form-type="submit" bindtap="submitInfo">
-    提交
-  </button>
+  <view class="page__bd page__bd_spacing">
+        <button class="weui-btn" type="primary" form-type="submit" bindtap="submitInfo">提交</button>
+  </view>
+
+
+  <view class="weui-cells__tips">请确保填写了所有字段</view>
+
+
+     
 
 
 </view>
