@@ -1,3 +1,13 @@
-<view>
-    <text> here is the lastest film</text>
+<!-- import zanui lib -->
+<import src="../../dist/noticebar/index.wxml" />
+<view class="container">
+  
+  <!-- noticebar -->
+  <view class="zan-panel">
+    <template
+      is="zan-noticebar"
+      data="{{ ...movable, componentId: 'movable'  }}"></template>
+  </view>
+
+
 </view>

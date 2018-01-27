@@ -19,9 +19,24 @@
             <view class="weui-form-preview__value">{{event.Content}}</view>
         </view>
     </view>
+    <!-- event image -->
     <image class="weui-article__img" src="{{event.image}}" mode="aspectFit" style="height: 180px" />
+    
+    <!-- event operation -->
     <view class="weui-form-preview__ft">
         <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="deleteEvent">删除</navigator>
         <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="editEvent">编辑</navigator>
+    </view>
+
+    <!-- footer -->
+    <view class="page__bd page__bd_spacing">
+
+        <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-footer__links">
+                <navigator url="https://github.com/wendyltan" class="weui-footer__link">Donate</navigator>
+            </view>
+            <view class="weui-footer__text">Copyright © 2015-2018 wendyltanpcy</view>
+        </view>
+     
     </view>
 </view>

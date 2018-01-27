@@ -1,5 +1,8 @@
 <view class="content">
 
+<!-- import zanui lib -->
+<import src="../../dist/toptips/index.wxml" />
+
   <!-- enter event title here -->
   <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
@@ -10,6 +13,7 @@
       </view>
   </view>
 
+
   <!-- select date here -->
   <view class="weui-cell weui-cell_input">
       <view class="weui-cell__hd">
@@ -17,7 +21,7 @@
       </view>
       <view class="weui-cell__bd">
           <picker mode="date" bindchange="bindDate">
-              <view class="weui-input">{{current_Date}}</view>
+              <view class="weui-input">{{event.Date}}</view>
           </picker>
       </view>
   </view>
@@ -75,11 +79,25 @@
         <button class="weui-btn" type="primary" form-type="submit" bindtap="submitInfo">提交</button>
   </view>
 
+  
 
-  <view class="weui-cells__tips">请确保填写了所有字段</view>
+
+  <!-- using zanui -->
+   <template is="zan-toptips" data="{{ zanTopTips }}"></template>
 
 
+    <!-- footer -->
+    <view class="page__bd page__bd_spacing">
+
+        <view class="weui-footer weui-footer_fixed-bottom">
+            <view class="weui-footer__links">
+                <navigator url="https://github.com/wendyltan" class="weui-footer__link">Donate</navigator>
+            </view>
+            <view class="weui-footer__text">Copyright © 2015-2018 wendyltanpcy</view>
+        </view>
      
+    </view>
 
+    
 
 </view>

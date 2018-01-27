@@ -45,6 +45,9 @@ Page({
     })
   },
   onLoad: function () {
+    wx.setNavigationBarTitle({
+      title: '首页'
+    })
     
     if (app.globalData.userInfo) {
       this.setData({
