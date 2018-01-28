@@ -9,7 +9,7 @@
           <view class="weui-label">{{title_hint}}</view>
       </view>
       <view class="weui-cell__bd">
-          <input class="weui-input" placeholder="请输入事件名" bindblur="bindTitle"/>
+          <input class="weui-input" placeholder="请输入事件名" bindblur="bindTitle" value = "{{event.title}}"/>
       </view>
   </view>
 
@@ -46,7 +46,7 @@
       <view class="weui-cells_after-title weui-cell__bd">
           <view class="weui-cell">
               <view class="weui-cell__bd">
-                  <textarea class="weui-textarea" bindinput="textChange" placeholder="请输入文本" style="height: 3.3em" />
+                  <textarea class="weui-textarea" bindinput="textChange" placeholder="请输入文本" style="height: 3.3em" value="{{event.Content}}" />
                   <view class="weui-textarea-counter">{{event.Content.length}}/200</view>
               </view>
           </view>
@@ -75,8 +75,13 @@
   </view>
 
   <!-- confirm to store the infomation -->
-  <view class="page__bd page__bd_spacing">
+  <view class="page__bd page__bd_spacing" wx:if="{{!edit_mode}}">
         <button class="weui-btn" type="primary" form-type="submit" bindtap="submitInfo">提交</button>
+  </view>
+
+   <!-- confirm to save the changed event-->
+  <view class="page__bd page__bd_spacing" wx:if="{{edit_mode}}">
+        <button class="weui-btn" type="primary" form-type="submit" bindtap="saveEvent">保存</button>
   </view>
 
   

@@ -24,8 +24,8 @@
     
     <!-- event operation -->
     <view class="weui-form-preview__ft">
-        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="deleteEvent">删除</navigator>
-        <navigator class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="editEvent">编辑</navigator>
+        <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="deleteEvent">删除</view>
+        <view class="weui-form-preview__btn weui-form-preview__btn_primary" hover-class="weui-form-preview__btn_active" bindtap="editEvent">编辑</view>
     </view>
 
     <!-- footer -->

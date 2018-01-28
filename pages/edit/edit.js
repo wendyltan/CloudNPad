@@ -14,6 +14,8 @@ Page(Object.assign({}, Zan.TopTips,{
     date_picker_hint:"选择日期",
     categoryArray:['Life','Work','Private','Study'],
     category_picker_hint:"选择类别",
+    edit_mode : false,
+    edit_index: "",
     eventList : [],
 
     event: {
@@ -79,7 +81,7 @@ Page(Object.assign({}, Zan.TopTips,{
     })
   },
 
-  submitInfo:function(e){
+  submitInfo:function(){
     
     //更新列表
     var title = this.data.event.title
@@ -119,17 +121,69 @@ Page(Object.assign({}, Zan.TopTips,{
 
     }else{
       this.showZanTopTips('请填写必要的字段',2000)
-
     }   
     
+  },
+
+  saveEvent:function(){
+    
+     //更新列表
+    var title = this.data.event.title
+    var Date = this.data.event.Date
+    var Content = this.data.event.Content
+    var index = this.data.edit_index
+    var newList = []
+
+    console.log("index: "+index)
+
+    //判断字段是否为空
+    if(title!=""&&Date!=""&&Content!=""){
+      //if not empty,just update list  
+      for(var i=0;i<this.data.eventList.length;i++){
+        if(i==index){
+          //replace the original event using new one
+          newList.push(this.data.event)
+        }else{
+          newList.push(this.data.eventList[i])
+        }     
+      }
+      
+
+      this.setData({
+        eventList : newList
+      })
+       //暂存在缓存中
+      wx.setStorage({
+        key:"eventList",
+        data:this.data.eventList
+      })
+
+      //最后，清除缓存里的currentEvent，返回到主页面，提示修改成功
+      wx.removeStorage({
+        key:"currentEvent",
+        success:function(res){
+          wx.switchTab({
+            url:"../index/index",
+            success:function(res){
+                wx.showToast({
+                  title: '修改成功！',
+                  icon: 'success',
+                  duration: 2000
+                })
+              }
+            })      
+          }
+        })
+
+    }else{
+      this.showZanTopTips('请填写必要的字段',2000)
+    }    
   },
 
 
   onLoad:function(options){
    
-    wx.setNavigationBarTitle({
-      title: '事件添加'
-    })
+   
 
     //读取上一次的事件列表继续添加
     var that = this
@@ -140,6 +194,41 @@ Page(Object.assign({}, Zan.TopTips,{
     that.setData({
       'event.Date'  : time
     })
+
+    //看能否获取编辑选项的内容，如果可以，就将详情显示到本页面
+    wx.getStorage({
+      key:"currentEvent",
+      success: function(res) {
+        that.data.event = res.data
+        that.setData({
+          event : that.data.event,
+          'event.title' : that.data.event.title,
+          'event.Content':that.data.event.Content,
+           edit_mode : true //处于编辑模式而不是新建模式
+
+        })
+        wx.setNavigationBarTitle({
+          title: '事件修改'
+        })
+      },
+      fail: function(res) {
+         wx.setNavigationBarTitle({
+            title: '事件添加'
+        })
+      }
+    })
+    //获取传入的在列表中的位置
+
+    wx.getStorage({
+      key:"currentPage",
+      success: function(res) {
+        that.setData({
+          edit_index: res.data
+        })
+      }
+    })
+
+     
   },
   onReady:function(){
     // 页面渲染完成
@@ -149,6 +238,7 @@ Page(Object.assign({}, Zan.TopTips,{
   },
   onHide:function(){
     // 页面隐藏
+   
   },
   onUnload:function(){
     // 页面关闭

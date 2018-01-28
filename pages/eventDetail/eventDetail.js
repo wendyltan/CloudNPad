@@ -1,5 +1,3 @@
-
-
 Page({
   data:{
       currentIndex:1,//DEFAULT
@@ -13,6 +11,7 @@ Page({
         Content : "default"
       }
   },
+  //删除事件
   deleteEvent:function(e){
     var that = this
      wx.showModal({
@@ -21,7 +20,6 @@ Page({
           confirmText: "确定",
           cancelText: "取消",
           success: function (res) {
-              console.log(res);
               if (res.confirm) {
                   console.log('用户删除')
                   //构造新的列表
@@ -58,8 +56,19 @@ Page({
           }
       });
   },
+  //编辑事件：将事件传到一个新的界面
+  //然后更新事件之后保存此事件到列表里
   editEvent:function(e){
-
+      var that = this
+      wx.navigateTo({
+        url:"../edit/edit",
+        success:function(e){
+          wx.setStorage({
+            key:"currentEvent",
+            data:that.data.event
+          })
+        }
+      })
   },
 
   getEventList:function(){
@@ -83,6 +92,7 @@ Page({
       data :that.data.eventList
     })
   },
+  
   onLoad:function(options){
     wx.setNavigationBarTitle({
       title: '事件详情'

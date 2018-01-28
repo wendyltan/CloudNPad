@@ -43,6 +43,12 @@ Page({
         })
       } 
     })
+
+    //同样需要销毁缓存中的currentEvent,只要回到这个页面就清除缓存
+    wx.removeStorage({
+      key:"currentEvent"
+    })
+
   },
   onLoad: function () {
     wx.setNavigationBarTitle({
