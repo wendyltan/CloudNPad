@@ -1,0 +1,14 @@
+.zan-col {
+  line-height: 40px;
+  text-align: center;
+  background-color: #39a9ed;
+  font-size: 16px;
+  color: #fff;
+}
+.zan-container{
+  height:246px;
+  background-color: #39a9ed;
+  color: #fff;
+  border: 2px solid white
+}
+

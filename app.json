@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/edit/edit",
     "pages/eventDetail/eventDetail",
-    "pages/latestfilm/latestfilm"
+    "pages/film/film",
+    "pages/newfilm/newfilm"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -24,9 +25,9 @@
         "selectedIconPath": "image/notebookHL.png"
       }, 
       {
-        "pagePath": "pages/latestfilm/latestfilm",
+        "pagePath": "pages/film/film",
          "iconPath": "image/course.png",
-        "text": "最近上映",
+        "text": "电影专区",
         "selectedIconPath": "image/courseHL.png"
       }]
   }
