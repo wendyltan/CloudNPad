@@ -1,14 +1,34 @@
 .zan-col {
-  line-height: 40px;
+  line-height: 25px;
   text-align: center;
   background-color: #39a9ed;
-  font-size: 16px;
+  font-size: 14px;
   color: #fff;
+}
+
+.zan-row{
+  line-height: 18px;
+  font-size:16px
 }
 .zan-container{
   height:246px;
   background-color: #39a9ed;
   color: #fff;
   border: 2px solid white
+}
+
+
+.swiper {
+  height: 400rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+
+.swiper-detail{
+  height: 600rpx;
+  width: 100%;
 }
 

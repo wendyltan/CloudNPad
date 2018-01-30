@@ -1,0 +1,32 @@
+<import src="../../dist/card/index.wxml" />
+
+ <view class="zan-panel" wx:for="{{theater}}" wx:for-item="the" wx:for-index="idx">
+    <view class="zan-card">
+      <view class="zan-card__thumb">
+        <image class="zan-card__img"
+          src="https://img.17getfun.com/FppTHJlkZk5Ttarp1hPsD_8bZZrd"
+          mode="aspectFit"
+        ></image>
+      </view>
+      <view class="zan-card__detail">
+        <view class="zan-card__detail-row">
+          <view class="zan-card__right-col">{{the.area}}</view>
+          <view class="zan-card__left-col zan-ellipsis--l2">
+             {{the.nm}}
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col">
+            {{the.dis}}
+          </view>
+        </view>
+
+        <view class="zan-card__detail-row zan-c-gray-darker">
+          <view class="zan-card__left-col zan-c-red">{{the.addr}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
