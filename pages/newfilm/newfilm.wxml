@@ -1,5 +1,40 @@
-<view class="container">
-  <view class="textContainer">
-    <text class="textStyle">{{text}}</text>
+
+<!-- video -->
+<view class="section tc">
+    <video id="movieVideo" style="width:100%"  src="{{movieDetail.vd}}" controls show-fullscreen-btn ></video>
+</view>
+
+<view class="zan-panel">
+  <image src="{{movieDetail.img}}" mode="aspectFit" class=" zan-col zan-col-24"/>
+  
+  <view class="zan-panel zan-col zan-col-16 zan-col-offset-7">
+    <view class="zan-cell zan-cell--last-child" >
+      <view class="zan-tag zan-tag--warn" wx:key="movie_tags" wx:for="{{tag}}" wx:for-item="item">{{item}}</view>
+     
+    </view>
   </view>
+  <view class="movieIntro">
+     <view class="weui-article">
+      <view class="weui-article__h1">{{movieDetail.nm}}</view>
+      <view class="zan-tag zan-tag--primary zan-tag--plain ">
+          <view class="weui-article__h3" wx:if="{{movieDetail.isShowing}}">正在上映</view>
+          <view class="weui-article__h3" wx:if="{{!movieDetail.isShowing}}">尚未上映</view>
+      </view>
+      <view class="zan-panel">
+        <view class="weui-article__title">导演：{{movieDetail.dir}}</view>
+        <view class="weui-article__title">主演：{{movieDetail.star}}</view>
+        
+        <view class="weui-article__h3">介绍：{{movieDetail.scm}}</view>
+        <view class="weui-article__h3">片长：{{movieDetail.dur}}分钟</view>
+        <view class="weui-article__h3">评分：{{movieDetail.sc}}</view>
+        <view class="weui-article__h3" wx:if="{{movieDetail.isShowing}}">正在上映</view>
+        <view class="weui-article__h3">影片类型：{{movieDetail.ver}}</view>
+      </view>
+      <view class="weui-article__p">
+          {{intro}}
+      </view>
+    </view>
+
+  </view>
+
 </view>

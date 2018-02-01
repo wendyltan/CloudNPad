@@ -47,6 +47,9 @@ Page(Object.assign({}, Zan.NoticeBar,Zan.card ,{
      area:[],
      theater:[],
 
+     //id for movie detail
+     movieid:"",
+
      current_movie :0
   },
     tabClick: function (e) {
@@ -128,6 +131,27 @@ Page(Object.assign({}, Zan.NoticeBar,Zan.card ,{
       this.setData({
         current_movie : e.detail.current
       })
+    },
+    //图片改变时加载详情页面
+    loadDetail:function(e){
+      var that = this
+      //获取当前点击的影片的id
+      var id =  this.data.movies[this.data.current_movie].id
+      that.setData({
+          movieid : id
+      })
+      //将这个id存起来
+      wx.setStorage({
+        key:"movieID",
+        data:that.data.movieid
+      })
+      //跳转到新的页面
+      wx.navigateTo({
+        url:"../newfilm/newfilm"
+      })
+      console.log(this.data.movies[this.data.current_movie].id)
+  
+
     },
   onLoad:function(options){
     var that = this

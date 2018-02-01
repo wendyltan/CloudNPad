@@ -3,7 +3,7 @@
     <swiper class="swiper" interval="5000" duration="1000" bindchange="imageChange">    
       <block wx:key="movie_image" wx:for="{{movies}}" wx:for-index="index" wx:for-item="movie">    
         <swiper-item>    
-          <image src="{{movie.img}}" class="slide-image" mode="aspectFill"/>    
+          <image src="{{movie.img}}" class="slide-image" mode="aspectFill" bindtap="loadDetail"/>    
         </swiper-item>  
       </block>    
     </swiper>

@@ -17,3 +17,7 @@
 .textContainer {
   margin-top: 200px;
 }
+
+.zan-tag + .zan-tag {
+  margin-left: 10px;
+}
