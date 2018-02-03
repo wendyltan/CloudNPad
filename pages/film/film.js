@@ -50,7 +50,9 @@ Page(Object.assign({}, Zan.NoticeBar,Zan.card ,{
      //id for movie detail
      movieid:"",
 
-     current_movie :0
+     current_movie :0,
+
+     theaterID:""
   },
     tabClick: function (e) {
         this.setData({
@@ -168,6 +170,7 @@ Page(Object.assign({}, Zan.NoticeBar,Zan.card ,{
         }
     });
 
+
     //处理最新的电影信息，发出请求
     wx.request({
       url :"https://m.maoyan.com/movie/list.json",
@@ -187,6 +190,11 @@ Page(Object.assign({}, Zan.NoticeBar,Zan.card ,{
         console.log(that.data.movies)
       },
       fail: function(res) {
+        wx.showToast({
+            title: '请求失败',
+            icon:"none",
+            duration: 2000
+        })
         console.log(res.data)
       }    
   
@@ -217,11 +225,39 @@ Page(Object.assign({}, Zan.NoticeBar,Zan.card ,{
         console.log(that.data.theater)
       },
       fail: function(res) {
+        wx.showToast({
+            title: '请求失败',
+            icon:"none",
+            duration: 2000
+        })
         console.log(res.data)
       }    
   
     })
   
+  },
+  //处理被选中的电影院
+  recordTID:function(e){
+      var that = this
+      var index = e.currentTarget.dataset.id
+      wx.setStorage({
+        key:"theaterID",
+        data:that.data.theater[index].id,
+        success: function(res) {
+          wx.navigateTo({
+            url:"../buyfilm/buyfilm"
+          })
+        },
+        fail:function(res){
+          wx.showToast({
+            title:"请重试！",
+            duration:2000,
+            icon:"none"
+          })
+        }
+      })
+      
+
   },
   onShow:function() {
     // 滚动通告栏需要initScroll

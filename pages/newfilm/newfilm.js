@@ -4,13 +4,13 @@ var Zan = require('../../dist/index.js');
 Page(Object.assign({}, Zan.Tag,{
   data:{
      movieid:"",
-
      //放置影片详情
      movieDetail:[],
      tag :[],
-     intro:""
+     intro:"",
 
   },
+
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     var that = this
@@ -64,8 +64,6 @@ Page(Object.assign({}, Zan.Tag,{
   },
   onReady:function(){
     // 页面渲染完成
-   
-
     this.videoContext = wx.createVideoContext('movieVideo')
   },
   onShow:function(){
@@ -76,5 +74,9 @@ Page(Object.assign({}, Zan.Tag,{
   },
   onUnload:function(){
     // 页面关闭
+    //清除缓存的电影院
+    wx.removeStorage({
+      key:"theaterID"
+    })
   }
 }))

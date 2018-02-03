@@ -7,9 +7,6 @@
   width: 100%;
 }
 
-.swiper-detail{
-   height: 600rpx;
-   width: 100%;
+.zan-panel{
+    border: solid 1px blue
 }
-
-

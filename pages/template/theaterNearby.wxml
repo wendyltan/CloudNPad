@@ -1,6 +1,6 @@
 
 
- <view class="zan-panel" wx:key="nearBy" wx:for="{{theater}}" wx:for-item="the" wx:for-index="idx">
+ <view class="zan-panel" wx:key="nearBy" wx:for="{{theater}}" wx:for-item="the" wx:for-index="idx" bindtap="recordTID" data-id="{{idx}}">
     <view class="zan-card">
       <view class="zan-card__thumb">
         <image class="zan-card__img"

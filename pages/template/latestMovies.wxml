@@ -3,23 +3,26 @@
     <swiper class="swiper" interval="5000" duration="1000" bindchange="imageChange">    
       <block wx:key="movie_image" wx:for="{{movies}}" wx:for-index="index" wx:for-item="movie">    
         <swiper-item>    
-          <image src="{{movie.img}}" class="slide-image" mode="aspectFill" bindtap="loadDetail"/>    
+          <image src="{{movie.img}}" class="slide-image" mode="aspectFit" bindtap="loadDetail"/>    
         </swiper-item>  
       </block>    
     </swiper>
 
      <swiper class="swiper-detail" interval="5000" duration="1000" current="{{current_movie}}">    
       <block wx:key="movie_detail" wx:for="{{movies}}" wx:for-index="index" wx:for-item="movie">    
-        <swiper-item>    
-          <view>片名：{{movie.nm}} </view>
-          <view>分类：{{movie.cat}}</view>
-          <view>导演：{{movie.dir}}</view>
-          <view>片长：{{movie.dur}}分钟</view>
-          <view>上映时间：{{movie.rt}}</view>
-          <view>评分：{{movie.sc}}</view>
-          <view>简介：{{movie.scm}}</view>
-          <view>主演：{{movie.star}}</view>
-          <view>类型：{{movie.ver}}</view>
+        <swiper-item>  
+        <view class="zan-panel">
+            <view class="weui-article__title">{{movie.nm}}</view>
+            <view class="weui-article__h3">分类：{{movie.cat}}</view>
+            <view class="weui-article__h3">导演：{{movie.dir}}</view>
+            <view class="weui-article__h3">片长：{{movie.dur}}分钟</view>
+            <view class="weui-article__h3">评分：{{movieDetail.sc}}</view>
+            <view class="weui-article__h3">上映时间：{{movie.rt}}</view>
+            <view class="weui-article__h3">简介：{{movie.scm}}</view>
+            <view class="weui-article__h3">评分：{{movie.sc}}</view>
+            <view class="weui-article__h3">主演：{{movie.star}}</view>
+            <view class="weui-article__h3">类型：{{movie.ver}}</view>
+          </view>  
         </swiper-item>  
       </block>    
     </swiper>

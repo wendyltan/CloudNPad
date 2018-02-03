@@ -1,0 +1,52 @@
+ <!-- import zanui lib -->
+<import src="../../dist/noticebar/index.wxml" />
+ <!-- noticebar -->
+<view class="zan-panel">
+  <template
+    is="zan-noticebar"
+    data="{{...movable,componentId: 'movable' }}"></template>
+</view>
+<!-- theater detail -->
+ <view class="zan-panel">
+    <view class="weui-article__title">{{theaterDetail.nm}}</view>
+    <view class="weui-article__h3">地址：{{theaterDetail.addr}}</view>
+    
+    <view class="weui-article__h3">路线：{{theaterDetail.bus}}</view>
+    <view class="weui-article__h3">城市：{{theaterDetail.ct}}</view>
+    <view class="weui-article__h3">地点：{{theaterDetail.dis}}</view>
+    <view class="weui-article__h3">电话：{{theaterDetail.tel}}</view>
+</view>
+
+<!-- tabbar -->
+<view class="page">
+      <view class="page__bd">
+          <view class="weui-tab">
+              <view class="weui-navbar">
+                  <block wx:for="{{theaterDates}}" wx:key="dates">
+                      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                          <view class="weui-navbar__title">{{item.text}}</view>
+                      </view>
+                  </block>
+                  <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+              </view>
+              <view class="weui-tab__panel">
+                  <view class="weui-tab__content" hidden="{{activeIndex != 0}}">1</view>
+                  <view class="weui-tab__content" hidden="{{activeIndex != 1}}">2</view>
+                  <view class="weui-tab__content" hidden="{{activeIndex != 2}}">3</view>
+                  <view class="weui-tab__content" hidden="{{activeIndex != 3}}">4</view>
+                  <view class="weui-tab__content" hidden="{{activeIndex != 4}}">5</view>
+              </view>
+          </view>
+      </view>
+  </view>
+
+<view class="zan-panel">
+  <swiper class="swiper" interval="5000" duration="1000" autoplay="true">    
+      <block wx:key="movie_image_theater" wx:for="{{theaterMovies}}" wx:for-index="index" wx:for-item="movie">    
+        <swiper-item>    
+          <image src="{{movie.img}}" class="slide-image" mode="aspectFit" bindtap="loadDetail"/>    
+        </swiper-item>  
+      </block>    
+    </swiper>
+  </view>
+  

@@ -4,7 +4,8 @@
     "pages/edit/edit",
     "pages/eventDetail/eventDetail",
     "pages/film/film",
-    "pages/newfilm/newfilm"
+    "pages/newfilm/newfilm",
+    "pages/buyfilm/buyfilm"
   ],
   "window":{
     "backgroundTextStyle":"light",

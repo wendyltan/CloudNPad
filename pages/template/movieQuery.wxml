@@ -20,31 +20,27 @@
   </view>
 
   <!-- film info -->
-  <view class="zan-panel">
-      <view class="zan-row">
-        <view class="zan-col zan-col-12 zan-container" >
-            <text class="zan-row">片名：{{filmInfo.title}}</text>
-            <text class="zan-row">导演：{{filmInfo.dir}}</text>
-            <text class="zan-row">主演：{{filmInfo.act}}</text>
-            <text class="zan-row">类型：{{filmInfo.tag}}</text>
-            <text class="zan-row">国家：{{filmInfo.area}}</text>
-            <text class="zan-row">年份：{{filmInfo.year}}</text>  
+        
+    <view class="zan-panel">
+        <image class="zan-col zan-col-24"src="{{filmInfo.cover}}" mode="aspectFit"/>
+    </view>
+    <view class="zan-panel">
+        <view class="weui-article__title">片名：{{filmInfo.title}}</view>
+        <view class="weui-article__h3">导演：{{filmInfo.dir}}</view>
+        <view class="weui-article__h3">主演：{{filmInfo.act}}</view>
+        <view class="weui-article__h3">类型：{{filmInfo.tag}}</view>
+        <view class="weui-article__h3">国家：{{filmInfo.area}}</view>
+        <view class="weui-article__h3">年份：{{filmInfo.year}}</view>
+       
+    </view>
+    <view class="zan-panel">
+        <view class="weui-article__p">
+            {{filmInfo.desc}}
         </view>
-        <view class="zan-col zan-col-12 zan-container">
-          <image class="zan-col zan-col-24"src="{{filmInfo.cover}}" mode="aspectFit"/>
-        </view>
-      </view>
-      <view class="zan-row zan-container" >
-        <text class="zan-row zan-col zan-col-24">剧情简介：</text>
-        <text class="zan-row zan-col zan-col-24">
-          {{filmInfo.desc}}
-        </text>
-      </view>
-      <view class="zan-row zan-container" wx:key="actorView" wx:for="{{filmInfo.act_s}}" wx:for-item="actor" wx:for-index="index" >
-          <image  class="zan-col zan-col-24" src="{{actor.image}}" mode="aspectFit"/>
-          <view class="zan-col zan-col-24">{{actor.name}}</view>
-      </view>
-      
-  </view>
+    </view>
+    <view wx:key="actorView" wx:for="{{filmInfo.act_s}}" wx:for-item="actor" wx:for-index="index" >
+        <image class="zan-col zan-col-24" src="{{actor.image}}" mode="aspectFit"/>
+        <view class="zan-col zan-col-12 zan-col-offset-11">{{actor.name}}</view>
+    </view>
 
 </view>
