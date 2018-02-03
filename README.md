@@ -1,9 +1,16 @@
-# CloudNPad
+# filmNPad
 一款带有影片查询功能的记事本应用
+
+## 体验版
+
+![try_it_link](image/try.jpg)
+
 
 ## 使用api
 
 猫眼，聚合数据
+
+
 
 ## 简介
 我的微信小程序的helloworld程序，很多界面都很丑（emmm懒得调css于是用别人的样式东拼西凑），此程序没有使用后台服务器。所有数据均直接请求得
