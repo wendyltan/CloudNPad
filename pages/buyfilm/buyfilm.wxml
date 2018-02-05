@@ -8,7 +8,7 @@
         </view>
         <view class="zan-card__detail">
             <view class="zan-card__detail-row">
-            <view class="zan-card__right-col">{{showInfo.cinemaName}}{{showInfo.hallName}}</view>
+            <view class="zan-card__right-col">{{showInfo.hallName}}</view>
             <view class="zan-card__left-col zan-ellipsis--l2">
                 {{showInfo.movieName}}
             </view>

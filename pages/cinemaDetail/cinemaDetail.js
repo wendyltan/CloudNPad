@@ -22,6 +22,8 @@ Page(Object.assign({}, Zan.NoticeBar,{
     theaterShow:[],
     showIds:[],
 
+    current_movie:0
+
 
   },
    tabClick: function (e) {
@@ -78,6 +80,12 @@ Page(Object.assign({}, Zan.NoticeBar,{
 
     
    },
+  //影片图片改变时
+  imageChange:function(e){
+    this.setData({
+      current_movie : e.detail.current
+    })
+  },
   onLoad:function(options){
     //进行请求
     var that = this
@@ -150,6 +158,10 @@ Page(Object.assign({}, Zan.NoticeBar,{
             that.setData({
               theaterShow:tempList
             })
+            //set page title
+            wx.setNavigationBarTitle({
+              title: that.data.theaterDetail.nm
+            })
 
            
           },
@@ -159,6 +171,8 @@ Page(Object.assign({}, Zan.NoticeBar,{
         })  
       }
     }) 
+   
+
 
   },
   onReady:function(){

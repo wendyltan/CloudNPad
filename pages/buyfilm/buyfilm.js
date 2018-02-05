@@ -18,12 +18,16 @@ Page({
           showInfo:res.data.showInfo,
           sections:res.data.sections[0].seatRows
         })
-
+         //set page title
+        wx.setNavigationBarTitle({
+          title: that.data.showInfo.cinemaName
+        })
       }
     })
+    
   },
-  onReady:function(e){
-    // 页面渲染完成
+  onReady:function(){
+    //获取具体的座位情况并放入列表中，对空位计数
     var tempList =[]
     var count = 0
     for(var i=0;i<this.data.sections.length;i++){

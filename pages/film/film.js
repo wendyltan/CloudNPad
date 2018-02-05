@@ -3,13 +3,8 @@ var Zan = require('../../dist/index.js')
 var apiKey  = '631599923d56215aaca2a9c039b040ce'
 var sliderWidth = 96 // 需要设置slider的宽度，用于计算中间位置
 
-Page(Object.assign({}, Zan.NoticeBar,Zan.card ,{
+Page(Object.assign({},Zan.card ,{
   data: {
-
-    //noticebar
-    movable: {
-      text: '====================================这块区域还在施工中!======================================='
-    },
 
     //tabbar
     tabs: ["影片查询", "最新影片", "周边影城"],
@@ -260,8 +255,7 @@ Page(Object.assign({}, Zan.NoticeBar,Zan.card ,{
 
   },
   onShow:function() {
-    // 滚动通告栏需要initScroll
-    this.initZanNoticeBarScroll('movable');
+  
   },
    onUnload:function(){
     // 页面关闭

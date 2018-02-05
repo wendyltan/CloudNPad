@@ -1,13 +1,6 @@
 <!-- import zanui lib -->
 <import src="../../dist/noticebar/index.wxml" />
 <view class="container">
-   <!-- noticebar -->
-  <view class="zan-panel">
-    <template
-      is="zan-noticebar"
-      data="{{ ...movable, componentId: 'movable'  }}"></template>
-  </view>
-
   <!-- tabbar -->
   <view class="page">
         <view class="page__bd">
