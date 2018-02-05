@@ -245,7 +245,7 @@ Page(Object.assign({}, Zan.NoticeBar,Zan.card ,{
         data:that.data.theater[index].id,
         success: function(res) {
           wx.navigateTo({
-            url:"../buyfilm/buyfilm"
+            url:"../cinemaDetail/cinemaDetail"
           })
         },
         fail:function(res){

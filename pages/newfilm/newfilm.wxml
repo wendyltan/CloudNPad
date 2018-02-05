@@ -7,18 +7,17 @@
 <view class="zan-panel">
   <image src="{{movieDetail.img}}" mode="aspectFit" class=" zan-col zan-col-24"/>
   
-  <view class="zan-panel zan-col zan-col-16 zan-col-offset-7">
+  <view class=" zan-col zan-col-16 zan-col-offset-7">
     <view class="zan-cell zan-cell--last-child" >
-      <view class="zan-tag zan-tag--warn" wx:key="movie_tags" wx:for="{{tag}}" wx:for-item="item">{{item}}</view>
-     
+      <view class="zan-tag zan-tag--warn" wx:key="movie_tags" wx:for="{{tag}}" wx:for-item="item">{{item}}</view>   
     </view>
   </view>
   <view class="movieIntro">
      <view class="weui-article">
       <view class="weui-article__h1">{{movieDetail.nm}}</view>
       <view class="zan-tag zan-tag--primary zan-tag--plain ">
-          <view class="weui-article__h3" wx:if="{{movieDetail.isShowing}}">正在上映</view>
-          <view class="weui-article__h3" wx:if="{{!movieDetail.isShowing}}">尚未上映</view>
+          <view class="weui-article__h3" wx:if="{{movieDetail.showSnum}}">正在上映</view>
+          <view class="weui-article__h3" wx:elif="{{!movieDetail.showSnum}}">尚未上映</view>
       </view>
       <view class="zan-panel">
         <view class="weui-article__title">导演：{{movieDetail.dir}}</view>

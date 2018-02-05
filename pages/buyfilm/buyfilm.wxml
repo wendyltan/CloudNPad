@@ -1,52 +1,61 @@
- <!-- import zanui lib -->
-<import src="../../dist/noticebar/index.wxml" />
- <!-- noticebar -->
 <view class="zan-panel">
-  <template
-    is="zan-noticebar"
-    data="{{...movable,componentId: 'movable' }}"></template>
-</view>
-<!-- theater detail -->
- <view class="zan-panel">
-    <view class="weui-article__title">{{theaterDetail.nm}}</view>
-    <view class="weui-article__h3">地址：{{theaterDetail.addr}}</view>
-    
-    <view class="weui-article__h3">路线：{{theaterDetail.bus}}</view>
-    <view class="weui-article__h3">城市：{{theaterDetail.ct}}</view>
-    <view class="weui-article__h3">地点：{{theaterDetail.dis}}</view>
-    <view class="weui-article__h3">电话：{{theaterDetail.tel}}</view>
+    <view class="zan-card">
+        <view class="zan-card__thumb">
+            <image class="zan-card__img"
+            src="https://img.17getfun.com/FppTHJlkZk5Ttarp1hPsD_8bZZrd"
+            mode="aspectFit"
+            ></image>
+        </view>
+        <view class="zan-card__detail">
+            <view class="zan-card__detail-row">
+            <view class="zan-card__right-col">{{showInfo.cinemaName}}{{showInfo.hallName}}</view>
+            <view class="zan-card__left-col zan-ellipsis--l2">
+                {{showInfo.movieName}}
+            </view>
+            </view>
+            <view class="zan-card__detail-row zan-c-gray-darker">
+            <view class="zan-card__left-col">
+                票价：{{showInfo.price}}元
+            </view>
+            </view>
+
+            <view class="zan-card__detail-row zan-c-gray-darker">
+                <view class="zan-card__left-col zan-c-red">上映时间：{{showInfo.showTime}}</view>
+            </view>
+        </view>
+    </view>
 </view>
 
-<!-- tabbar -->
-<view class="page">
-      <view class="page__bd">
-          <view class="weui-tab">
-              <view class="weui-navbar">
-                  <block wx:for="{{theaterDates}}" wx:key="dates">
-                      <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-                          <view class="weui-navbar__title">{{item.text}}</view>
-                      </view>
-                  </block>
-                  <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-              </view>
-              <view class="weui-tab__panel">
-                  <view class="weui-tab__content" hidden="{{activeIndex != 0}}">1</view>
-                  <view class="weui-tab__content" hidden="{{activeIndex != 1}}">2</view>
-                  <view class="weui-tab__content" hidden="{{activeIndex != 2}}">3</view>
-                  <view class="weui-tab__content" hidden="{{activeIndex != 3}}">4</view>
-                  <view class="weui-tab__content" hidden="{{activeIndex != 4}}">5</view>
-              </view>
-          </view>
-      </view>
-  </view>
-
 <view class="zan-panel">
-  <swiper class="swiper" interval="5000" duration="1000" autoplay="true">    
-      <block wx:key="movie_image_theater" wx:for="{{theaterMovies}}" wx:for-index="index" wx:for-item="movie">    
-        <swiper-item>    
-          <image src="{{movie.img}}" class="slide-image" mode="aspectFit" bindtap="loadDetail"/>    
-        </swiper-item>  
-      </block>    
-    </swiper>
-  </view>
-  
+    <view class="zan-row" >
+        <view style="color:black;margin-left:45%">荧幕</view>
+    </view>
+
+    <view class="zan-row" wx:for="{{seatType}}" wx:key="seatType" wx:for-item="row" wx:for-index="index">
+        <view  wx:key="row" wx:for="{{row}}" wx:for-item="seat"  wx:for-index="idx" style="margin-left:10%">
+            <view  class="weui-grid__label zan-col zan-col-2" wx:if="{{idx==0}}">{{index+1}}</view>
+            <view  class="weui-grid__label zan-col zan-col-1" wx:if="{{seat == 'E'}}" style="color:yellow">过</view>
+            <view  class="weui-grid__label  zan-col zan-col-1" wx:if="{{seat == 'N'}}" style="color:blue">空</view>
+            <view  class="weui-grid__label  zan-col zan-col-1" wx:if="{{seat == 'LK'}}" style="color:red">有</view>
+        </view>
+    </view>
+</view>
+
+<!-- using zan-capsule -->
+<import src="/dist/capsule/index.wxml" />
+<view class="zan-panel">
+    <view class="zan-cell zan-cell--last-child" style="margin-left:15%">
+        <template is="capsule" data="{{ leftText: '过', rightText: '这是过道',color:'yellow'}}" />
+        <template is="capsule" data="{{ leftText: '空', rightText: '现有空位', color: 'blue' }}" />
+        <template is="capsule" data="{{ leftText: '有', rightText: '已被占用', color: 'red' }}" />
+    </view>
+</view>
+<view class="zan-panel">
+<view class="zan-cell">
+    <view class="zan-cell__bd">
+    <view class="zan-cell__text">剩余空位</view>
+    <view class="zan-cell__desc">本APP不提供订座服务</view>
+    </view>
+    <view class="zan-cell__ft">{{leftSeat}}个</view>
+</view>
+</view>

@@ -1,0 +1,79 @@
+ <!-- import zanui lib -->
+<import src="../../dist/noticebar/index.wxml" />
+ <!-- noticebar -->
+<view class="zan-panel">
+  <template
+    is="zan-noticebar"
+    data="{{...movable,componentId: 'movable' }}"></template>
+</view>
+<!-- theater detail -->
+ <view class="zan-panel">
+    <view class="weui-article__title">{{theaterDetail.nm}}</view>
+    <view class="weui-article__h3">地址：{{theaterDetail.addr}}</view>
+    
+    <view class="weui-article__h3">路线：{{theaterDetail.bus}}</view>
+    <view class="weui-article__h3">城市：{{theaterDetail.ct}}</view>
+    <view class="weui-article__h3">地点：{{theaterDetail.dis}}</view>
+    <view class="weui-article__h3">电话：{{theaterDetail.tel}}</view>
+</view>
+
+<!-- tabbar -->
+<view class="zan-panel">
+    <view class="weui-tab">
+        <view class="weui-navbar">
+            <block wx:for="{{theaterDates}}" wx:key="dates">
+                <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                    <view class="weui-navbar__title">{{item.text}}</view>
+                </view>
+            </block>
+            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+        </view>
+        <view class="weui-tab__panel">
+            <view class="weui-tab__content" hidden="{{activeIndex != idx}}" wx:key="date_show_card" wx:for="{{theaterShow}}" wx:for-item="tshow" wx:for-index="idx">
+            <!-- dateshow card -->
+                <view class="zan-panel" wx:key="show_key" wx:for="{{tshow}}" wx:for-item="show" bindtap="buy" data-showid="{{show.showId}}">
+                    <view class="zan-card">
+                        <view class="zan-card__thumb">
+                            <image class="zan-card__img"
+                            src="https://img.17getfun.com/FppTHJlkZk5Ttarp1hPsD_8bZZrd"
+                            mode="aspectFit"
+                            ></image>
+                        </view>
+                        <view class="zan-card__detail">
+                            <view class="zan-card__detail-row">
+                            <view class="zan-card__right-col">{{show.tp}}</view>
+                            <view class="zan-card__left-col zan-ellipsis--l2">
+                                {{show.th}}
+                            </view>
+                            </view>
+                            <view class="zan-card__detail-row zan-c-gray-darker">
+                            <view class="zan-card__left-col">
+                                开场：{{show.tm}}
+                            </view>
+                            <view class="zan-card__left-col">
+                                散场：{{show.end}}
+                            </view>
+                            </view>
+
+                            <view class="zan-card__detail-row zan-c-gray-darker">
+                                <view class="zan-card__left-col zan-c-red">{{show.showId}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<view class="zan-panel">
+  <swiper class="swiper" interval="5000" duration="1000" autoplay="true">    
+      <block wx:key="movie_image_theater" wx:for="{{theaterMovies}}" wx:for-index="index" wx:for-item="movie">    
+        <swiper-item>    
+          <image src="{{movie.img}}" class="slide-image" mode="aspectFit" bindtap="loadDetail"/>    
+        </swiper-item>  
+      </block>    
+    </swiper>
+  </view>
+  

@@ -5,7 +5,9 @@
     "pages/eventDetail/eventDetail",
     "pages/film/film",
     "pages/newfilm/newfilm",
+    "pages/cinemaDetail/cinemaDetail",
     "pages/buyfilm/buyfilm"
+
   ],
   "window":{
     "backgroundTextStyle":"light",
