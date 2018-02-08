@@ -13,7 +13,6 @@ Page({
     wx.getStorage({
       key:"filmCinema",
       success:function(res){
-        console.log(res.data)
         that.setData({
           showInfo:res.data.showInfo,
           sections:res.data.sections[0].seatRows
@@ -33,7 +32,6 @@ Page({
     for(var i=0;i<this.data.sections.length;i++){
       var list=[]
       for(var j=0;j<this.data.sections[i].seats.length;j++){
-        console.log(this.data.sections[i].seats[j])
         list.push(this.data.sections[i].seats[j].type)
         if(this.data.sections[i].seats[j].type=='N'){
           count++

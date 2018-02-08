@@ -29,9 +29,9 @@
       }, 
       {
         "pagePath": "pages/film/film",
-         "iconPath": "image/course.png",
+         "iconPath": "image/movie.png",
         "text": "电影专区",
-        "selectedIconPath": "image/courseHL.png"
+        "selectedIconPath": "image/movieHL.png"
       }]
   }
 }

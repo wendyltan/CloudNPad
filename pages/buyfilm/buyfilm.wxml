@@ -34,9 +34,9 @@
     <view class="zan-row" wx:for="{{seatType}}" wx:key="seatType" wx:for-item="row" wx:for-index="index">
         <view  wx:key="row" wx:for="{{row}}" wx:for-item="seat"  wx:for-index="idx" style="margin-left:10%">
             <view  class="weui-grid__label zan-col zan-col-2" wx:if="{{idx==0}}">{{index+1}}</view>
-            <view  class="weui-grid__label zan-col zan-col-1" wx:if="{{seat == 'E'}}" style="color:yellow">过</view>
-            <view  class="weui-grid__label  zan-col zan-col-1" wx:if="{{seat == 'N'}}" style="color:blue">空</view>
-            <view  class="weui-grid__label  zan-col zan-col-1" wx:if="{{seat == 'LK'}}" style="color:red">有</view>
+            <view  class="weui-grid__label zan-col zan-col-1" wx:if="{{seat == 'E'}}" style="color:#f4a460">H</view>
+            <view  class="weui-grid__label  zan-col zan-col-1" wx:if="{{seat == 'N'}}" style="color:blue">E</view>
+            <view  class="weui-grid__label  zan-col zan-col-1" wx:if="{{seat == 'LK'}}" style="color:red">S</view>
         </view>
     </view>
 </view>
@@ -45,9 +45,9 @@
 <import src="/dist/capsule/index.wxml" />
 <view class="zan-panel">
     <view class="zan-cell zan-cell--last-child" style="margin-left:15%">
-        <template is="capsule" data="{{ leftText: '过', rightText: '这是过道',color:'yellow'}}" />
-        <template is="capsule" data="{{ leftText: '空', rightText: '现有空位', color: 'blue' }}" />
-        <template is="capsule" data="{{ leftText: '有', rightText: '已被占用', color: 'red' }}" />
+        <template is="capsule" data="{{ leftText: 'H', rightText: '这是过道',color:'#f4a460'}}" />
+        <template is="capsule" data="{{ leftText: 'E', rightText: '现有空位', color: 'blue' }}" />
+        <template is="capsule" data="{{ leftText: 'S', rightText: '已被卖出', color: 'red' }}" />
     </view>
 </view>
 <view class="zan-panel">

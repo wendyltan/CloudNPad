@@ -1,18 +1,13 @@
 # filmNPad
 一款带有影片查询功能的记事本应用
 
-## 体验版
-
-![try_it_link](image/try.jpg)
-
-
 ## 使用api
 
 猫眼，聚合数据
 
 
 ## 简介
-我的微信小程序的hello_world程序，很多界面都很丑（emmm懒得调css于是用别人的样式东拼西凑），此程序没有使用后台服务器。所有数据均直接请求得
+我的微信小程序的hello_world程序，此程序没有使用后台服务器。所有数据均直接请求得
 
 ## 引用的ui
 
@@ -20,6 +15,23 @@
 - [zan-ui](https://github.com/youzan/zanui-weapp)
 
 ## 主要界面
+
+
+### 记事本
+![try_it_link](screenshot/index.png)
+![try_it_link](screenshot/event_edit.png)
+![try_it_link](screenshot/event_detail.png)
+![try_it_link](screenshot/event_change.png)
+
+### 影讯
+![try_it_link](screenshot/new_movie.png)
+![try_it_link](screenshot/moviequery.png)
+![try_it_link](screenshot/movie_detail.png)
+![try_it_link](screenshot/movie_detail_2.png)
+![try_it_link](screenshot/cinema_nearby.png)
+![try_it_link](screenshot/cinema_detail.png)
+![try_it_link](screenshot/cinema_detail_2.png)
+![try_it_link](screenshot/seat_detail.png)
 
 ### 记事本
 + 增加新事件

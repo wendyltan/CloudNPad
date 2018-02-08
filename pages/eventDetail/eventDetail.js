@@ -57,15 +57,15 @@ Page({
       });
   },
   //编辑事件：将事件传到一个新的界面
-  //然后更新事件之后保存此事件到列表里
+  //注意这里跳转和存储的顺序非常重要
   editEvent:function(e){
       var that = this
-      wx.navigateTo({
-        url:"../edit/edit",
-        success:function(e){
-          wx.setStorage({
-            key:"currentEvent",
-            data:that.data.event
+      wx.setStorage({
+        key:"currentEvent",
+        data:that.data.event,
+        success:function(res){
+          wx.navigateTo({
+            url:"../edit/edit"
           })
         }
       })
@@ -77,9 +77,8 @@ Page({
       key:"eventList",
       success: function(res) {
         //必须要这样重新设置一下setData才会立即更新数据
-        that.data.eventList = res.data
         that.setData({
-          eventList : that.data.eventList
+          eventList : res.data
         })
       }
     })
@@ -103,9 +102,8 @@ Page({
      wx.getStorage({
       key:"currentPage",
       success:function(res){
-        that.data.currentIndex = res.data
         that.setData({
-          currentIndex : that.data.currentIndex
+          currentIndex : res.data
         })
         //必须在success的回调函数中设置，否则无用。why？
         that.setData({

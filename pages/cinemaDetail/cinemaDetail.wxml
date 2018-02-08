@@ -17,6 +17,30 @@
     <view class="weui-article__h3">电话：{{theaterDetail.tel}}</view>
 </view>
 
+
+<!-- movie image -->
+<view class="zan-panel">
+    <view class="zan-cell">
+        <view class="zan-cell__bd">
+            <view class="zan-cell__text">最近电影</view>
+            <view class="zan-cell__desc" wx:if="{{theaterMovies[current_movie].isShowing}}">正在上映</view>
+            <view class="zan-cell__desc" wx:if="{{!theaterMovies[current_movie].isShowing}}">尚未上映</view>
+
+        </view>
+        <view class="zan-cell__ft">{{theaterMovies[current_movie].nm}}</view>
+    </view>
+
+    <swiper class="swiper" interval="5000" duration="1000"  bindchange="imageChange">    
+        <block wx:key="movie_image_theater" wx:for="{{theaterMovies}}" wx:for-index="index" wx:for-item="movie">    
+            <swiper-item>    
+            <image src="{{movie.img}}" class="slide-image" mode="aspectFit" />    
+            </swiper-item>  
+        </block>    
+    </swiper>
+    
+</view>
+  
+
 <!-- tabbar -->
 <view class="zan-panel">
     <view class="weui-tab">
@@ -66,25 +90,3 @@
     </view>
 </view>
 
-<!-- movie image -->
-<view class="zan-panel">
- <view class="zan-cell">
-    <view class="zan-cell__bd">
-    <view class="zan-cell__text">最近电影</view>
-    <view class="zan-cell__desc" wx:if="{{theaterMovies[current_movie].isShowing}}">正在上映</view>
-    <view class="zan-cell__desc" wx:if="{{!theaterMovies[current_movie].isShowing}}">尚未上映</view>
-
-    </view>
-     <view class="zan-cell__ft">{{theaterMovies[current_movie].nm}}</view>
-    </view>
-
-    <swiper class="swiper" interval="5000" duration="1000" autoplay="true"  bindchange="imageChange">    
-        <block wx:key="movie_image_theater" wx:for="{{theaterMovies}}" wx:for-index="index" wx:for-item="movie">    
-            <swiper-item>    
-            <image src="{{movie.img}}" class="slide-image" mode="aspectFit" />    
-            </swiper-item>  
-        </block>    
-    </swiper>
-    
-  </view>
-  
